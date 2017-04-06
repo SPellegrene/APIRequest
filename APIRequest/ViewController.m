@@ -9,21 +9,43 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (nonatomic) double bankAccount;
+@property (nonatomic) double itemAmount;
 
 @end
+
+
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.bankAccount = 500.00;
+    self.itemAmount = 400.00;
 }
 
+- (BOOL)canPurchase: (double)amount {
+    if(self.bankAccount > amount)
+        return YES;
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        return NO;
+    }
+
+- (void)declareWinnerWithPlayerAScore:(NSUInteger)scoreA playerBScore:(NSUInteger)scoreB {
+    if (scoreA > scoreB)
+        NSLog(@"A is a winner!");
+    else if (scoreB > scoreA)
+        NSLog(@"B is a winner");
+    else
+        NSLog(@"@No one is winning");
 }
 
+- (void)playground {
+    [self declareWinnerWithPlayerAScore:55 playerBScore:60];
+}
 
-@end
+    @end
+
+
